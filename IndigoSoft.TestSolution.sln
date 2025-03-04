@@ -1,9 +1,17 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35728.132 d17.12
+VisualStudioVersion = 17.12.35728.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndigoSoft.Svcs.UserConnections", "IndigoSoft.Svcs.UserConnections\IndigoSoft.Svcs.UserConnections.csproj", "{A0C37A67-4A35-4BE6-BA4F-08E4C6BEFFFD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libraries", "Libraries", "{A6AD0E78-81C7-49A7-8CA0-9C4B17FCC988}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{D2E75789-BEC5-49F3-86FA-8A04F9362230}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7867ED1-F00E-449B-ACD9-8CB14B40A25B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndigoSoft.Core", "IndigoSoft.Core\IndigoSoft.Core.csproj", "{5D2A6BB2-AF70-486F-A85F-7A577F1BF770}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +23,16 @@ Global
 		{A0C37A67-4A35-4BE6-BA4F-08E4C6BEFFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A0C37A67-4A35-4BE6-BA4F-08E4C6BEFFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A0C37A67-4A35-4BE6-BA4F-08E4C6BEFFFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D2A6BB2-AF70-486F-A85F-7A577F1BF770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D2A6BB2-AF70-486F-A85F-7A577F1BF770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D2A6BB2-AF70-486F-A85F-7A577F1BF770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D2A6BB2-AF70-486F-A85F-7A577F1BF770}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A0C37A67-4A35-4BE6-BA4F-08E4C6BEFFFD} = {D2E75789-BEC5-49F3-86FA-8A04F9362230}
+		{5D2A6BB2-AF70-486F-A85F-7A577F1BF770} = {A6AD0E78-81C7-49A7-8CA0-9C4B17FCC988}
 	EndGlobalSection
 EndGlobal
