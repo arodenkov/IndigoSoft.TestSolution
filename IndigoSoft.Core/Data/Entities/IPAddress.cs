@@ -4,11 +4,15 @@
 
 namespace IndigoSoft.Core.Data.Entities
 {
+    using NpgsqlTypes;
+
     /// <summary>
     /// 
     /// </summary>
     public class IPAddress
     {
+        private string address = string.Empty;
+
         /// <summary>
         /// 
         /// </summary>
@@ -18,6 +22,11 @@ namespace IndigoSoft.Core.Data.Entities
         /// 
         /// </summary>
         public string Address { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public NpgsqlTsVector TsvAddress { get; }
 
         /// <summary>
         /// 

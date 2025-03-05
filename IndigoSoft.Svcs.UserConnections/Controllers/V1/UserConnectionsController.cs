@@ -4,7 +4,7 @@
 
 namespace IndigoSoft.Svcs.UserConnections.Controllers.V1
 {
-    using IndigoSoft.Svcs.UserConnections.Domain.Contracts;
+    using IndigoSoft.Core.Domain.Contracts;
     using Microsoft.AspNetCore.Mvc;
     using Swashbuckle.AspNetCore.Annotations;
 

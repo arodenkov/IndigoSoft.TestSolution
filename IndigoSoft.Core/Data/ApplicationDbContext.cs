@@ -29,6 +29,19 @@ namespace IndigoSoft.Core.Data
         {
             modelBuilder.Entity<UserIPConnection>()
                 .HasIndex(u => new { u.UserId, u.ConnectionTime });
+
+            modelBuilder.Entity<IPAddress>()
+                //.HasGeneratedTsVectorColumn(
+                //    a => a.TsvAddress,
+                //    "english",          // Text search config
+                //    a => a.TsvAddress)  // Included property
+                .HasIndex(a => a.TsvAddress)
+                .HasMethod("GIN");
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            base.OnConfiguring(optionsBuilder);
         }
     }
 }

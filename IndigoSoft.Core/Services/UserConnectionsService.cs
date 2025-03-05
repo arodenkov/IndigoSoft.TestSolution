@@ -2,13 +2,16 @@
 // Copyright © 2025 IndigoSoft
 // </copyright>
 
-namespace IndigoSoft.Svcs.UserConnections.Services
+namespace IndigoSoft.Core.Services
 {
     using IndigoSoft.Core.Data;
     using IndigoSoft.Core.Data.Entities;
-    using IndigoSoft.Svcs.UserConnections.Domain.Contracts;
+    using IndigoSoft.Core.Domain.Contracts;
     using Microsoft.EntityFrameworkCore;
 
+    /// <summary>
+    /// 
+    /// </summary>
     public class UserConnectionsService : IUserConnectionsService
     {
 
@@ -50,7 +53,7 @@ namespace IndigoSoft.Svcs.UserConnections.Services
         {
             return await this.context.UserIPConnections
                 .Include(x => x.IPAddress)
-                .Where(x => x.IPAddress.Address.Contains(ipPart))
+                .Where(x => x.IPAddress.TsvAddress.Matches(ipPart))
                 .Select(x => x.UserId)
                 .Distinct()
                 .ToListAsync();

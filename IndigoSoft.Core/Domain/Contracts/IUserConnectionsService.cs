@@ -2,7 +2,7 @@
 // Copyright © 2025 IndigoSoft
 // </copyright>
 
-namespace IndigoSoft.Svcs.UserConnections.Domain.Contracts
+namespace IndigoSoft.Core.Domain.Contracts
 {
     public interface IUserConnectionsService
     {

@@ -1,0 +1,24 @@
+
+CREATE TABLE Users (
+    Id BIGINT PRIMARY KEY
+);
+
+CREATE TABLE IPAddresses (
+    Id SERIAL PRIMARY KEY,
+    Address TEXT NOT NULL UNIQUE,
+    tsvAddress tsvector
+);
+
+CREATE TABLE UserIPConnections (
+    Id SERIAL PRIMARY KEY,
+    UserId BIGINT REFERENCES Users(Id) ON DELETE CASCADE,
+    IPAddressId INT REFERENCES IPAddresses(Id) ON DELETE CASCADE,
+    ConnectionTime TIMESTAMP NOT NULL
+);
+
+CREATE INDEX idx_ip_address ON IPAddresses USING gin (tsvAddress);
+CREATE INDEX idx_user_ip_connections ON UserIPConnections (UserId, ConnectionTime);
+
+CREATE TRIGGER ip_address_search_vector_update BEFORE INSERT OR UPDATE
+    ON "IPAddresses" FOR EACH ROW EXECUTE PROCEDURE
+    tsvector_update_trigger("tsvAddress", 'english', "Address");
