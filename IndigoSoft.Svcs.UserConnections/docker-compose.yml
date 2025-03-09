@@ -1,0 +1,30 @@
+﻿# /docker-compose.yml
+version: "4"
+
+volumes:
+  local_postgres_data: {}
+
+services:
+  web:
+    build: ./Backend
+    ports:
+      - "5026:5026"
+    volumes:
+      - ./backend:/app
+      - /app/IndigoSoft.Svcs.UserConnections/bin
+      - /app/IndigoSoft.Svcs.UserConnections/obj
+    depends_on:
+      - db
+
+  db:
+    image: postgres:12
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USERNAME: postgres
+      POSTGRES_DB: IndigoSoft.TestDb
+    volumes:
+      - local_postgres_data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+ 

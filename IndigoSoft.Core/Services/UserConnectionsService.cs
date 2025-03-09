@@ -10,11 +10,10 @@ namespace IndigoSoft.Core.Services
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
-    /// 
+    /// UserConnectionsService class.
     /// </summary>
     public class UserConnectionsService : IUserConnectionsService
     {
-
         private readonly ApplicationDbContext context;
 
         /// <summary>
@@ -53,7 +52,7 @@ namespace IndigoSoft.Core.Services
         {
             return await this.context.UserIPConnections
                 .Include(x => x.IPAddress)
-                .Where(x => x.IPAddress.TsvAddress.Matches(ipPart))
+                .Where(x => x.IPAddress!.TsvAddress!.Matches(ipPart))
                 .Select(x => x.UserId)
                 .Distinct()
                 .ToListAsync();
@@ -65,7 +64,7 @@ namespace IndigoSoft.Core.Services
             return await this.context.UserIPConnections
                 .Include(x => x.IPAddress)
                 .Where(x => x.UserId == userId)
-                .Select(x => x.IPAddress.Address)
+                .Select(x => x.IPAddress!.Address)
                 .Distinct()
                 .ToListAsync();
         }

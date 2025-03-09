@@ -42,6 +42,5 @@ namespace IndigoSoft.Svcs.UserConnections.Controllers.V1
         [HttpGet("GetLastConnection")]
         [SwaggerOperation(Tags = new[] { "GetLastConnection" })]
         public async Task<(DateTime?, string?)> GetLastConnectionAsync(long userId) => await this.service.GetLastConnectionAsync(userId);
-
     }
 }

@@ -8,19 +8,22 @@ namespace IndigoSoft.Core.Data
     using Microsoft.EntityFrameworkCore;
 
     /// <summary>
-    /// 
+    /// Application DB context class.
     /// </summary>
     public class ApplicationDbContext : DbContext
     {
+        /// <summary>
+        /// Gets or sets users dataset.
+        /// </summary>
         public DbSet<User> Users { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets user IP addresses dataset.
         /// </summary>
         public DbSet<IPAddress> IPAddresses { get; set; }
 
         /// <summary>
-        /// 
+        /// Gets or sets UserIPConnections dataset.
         /// </summary>
         public DbSet<UserIPConnection> UserIPConnections { get; set; }
 
@@ -31,14 +34,11 @@ namespace IndigoSoft.Core.Data
                 .HasIndex(u => new { u.UserId, u.ConnectionTime });
 
             modelBuilder.Entity<IPAddress>()
-                //.HasGeneratedTsVectorColumn(
-                //    a => a.TsvAddress,
-                //    "english",          // Text search config
-                //    a => a.TsvAddress)  // Included property
                 .HasIndex(a => a.TsvAddress)
                 .HasMethod("GIN");
         }
 
+        /// <inheritdoc/>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
